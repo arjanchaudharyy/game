@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TIC TAC TOE</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    
+    <!-- Particles.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    
+    <!-- Canvas Confetti -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Particle Background -->
+    <div id="particles-js"></div>
+
+    <!-- Taskbar -->
+    <div class="taskbar">
+        <h1>Tic Tac Toe</h1>
+        <label class="switch">
+            <input type="checkbox" id="themeToggle" aria-label="Toggle Dark Mode">
+            <span class="slider"></span>
+        </label>
+    </div>
+
+    <div class="container">
+        <header>
+            <h1 class="title">TIC TAC TOE</h1>
+        </header>
+        
+        <!-- Home Page -->
+        <main id="homePage">
+            <div class="button-container vertical">
+                <button id="normalMode" class="btn glow-on-hover" aria-label="Start Normal Mode">Normal Mode</button>
+                <button id="customMode" class="btn glow-on-hover" aria-label="Start Custom Mode">Custom Mode</button>
+                <button id="vsComputerMode" class="btn glow-on-hover" aria-label="Start Vs Computer Mode">Vs Computer Mode</button>
+            </div>
+        </main>
+
+        <!-- Player Name Page -->
+        <main id="playerNamePage" style="display: none;">
+            <div class="input-container vertical">
+                <input type="text" id="player1Name" placeholder="Player 1 Name" class="playerInput" aria-label="Player 1 Name">
+                <input type="text" id="player2Name" placeholder="Player 2 Name" class="playerInput" aria-label="Player 2 Name">
+            </div>
+            <div class="button-container vertical">
+                <button id="startGame" class="btn glow-on-hover" aria-label="Start Game">Start Game</button>
+                <button id="goBackHome" class="btn glow-on-hover" aria-label="Go Back to Home">Go Back</button>
+            </div>
+        </main>
+
+        <!-- Vs Computer Difficulty Selection Page -->
+        <main id="difficultyPage" style="display: none;">
+            <h2>Select Difficulty</h2>
+            <div class="button-container vertical">
+                <button class="btn glow-on-hover" data-difficulty="easy" aria-label="Easy Difficulty">Easy</button>
+                <button class="btn glow-on-hover" data-difficulty="medium" aria-label="Medium Difficulty">Medium</button>
+                <button class="btn glow-on-hover" data-difficulty="hard" aria-label="Hard Difficulty">Hard</button>
+                <button id="goBackToNamesFromDifficulty" class="btn glow-on-hover" aria-label="Go Back to Player Names">Go Back</button>
+            </div>
+        </main>
+
+        <!-- Game Page -->
+        <main id="gamePage" style="display: none;">
+            <div id="gameBoard">
+           
+                <div class="cell" data-index="0" tabindex="0" aria-label="Cell 1"></div>
+                <div class="cell" data-index="1" tabindex="0" aria-label="Cell 2"></div>
+                <div class="cell" data-index="2" tabindex="0" aria-label="Cell 3"></div>
+                <div class="cell" data-index="3" tabindex="0" aria-label="Cell 4"></div>
+                <div class="cell" data-index="4" tabindex="0" aria-label="Cell 5"></div>
+                <div class="cell" data-index="5" tabindex="0" aria-label="Cell 6"></div>
+                <div class="cell" data-index="6" tabindex="0" aria-label="Cell 7"></div>
+                <div class="cell" data-index="7" tabindex="0" aria-label="Cell 8"></div>
+                <div class="cell" data-index="8" tabindex="0" aria-label="Cell 9"></div>
+            </div>
+               <div id="victoryLine"></div><div id="victoryLine"></div>
+            <div id="gameInfo">
+                <p id="currentPlayer">Player's Turn</p>
+            </div>
+            <div class="button-container vertical">
+                <button id="goBackToNamesFromGame" class="btn glow-on-hover" aria-label="Go Back to Player Names">Go Back</button>
+            </div>
+        </main>
+
+        <!-- Win/Draw Modal -->
+        <div id="modal" class="modal" aria-modal="true" role="dialog">
+            <div class="modal-content">
+                <h2 id="modalMessage">Message</h2>
+                <div class="button-container vertical">
+                    <button id="restartButton" class="btn glow-on-hover" aria-label="Restart Game">Restart Game</button>
+                    <button id="goHomeButton" class="btn glow-on-hover" aria-label="Go to Home">Go to Home</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Riddle Modal -->
+        <div id="riddleModal" class="modal" aria-modal="true" role="dialog">
+            <div class="modal-content">
+                <h2>Answer the riddle to choose your symbol:</h2>
+                <p id="riddleQuestion">Riddle goes here</p>
+                <input type="text" id="riddleAnswer" placeholder="Your answer" class="playerInput" aria-label="Riddle Answer">
+                <button id="submitRiddle" class="btn glow-on-hover" aria-label="Submit Riddle Answer">Submit</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>Made with <span class="heart">❤️</span> by Arjan Chaudhary</p>
+    </footer>
+
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>
